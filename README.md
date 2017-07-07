@@ -1,6 +1,6 @@
-# _Moe's Bakery_
+# _Moe's Coffee_
 
-#### _An application for a bakery. Users can view products and leave reviews and admins can create, delete and update products and reviews_
+#### _An application for a coffee shop. Users can view products and leave reviews and admins can create, delete and update products and reviews_
 
 #### By _**Mohamed Warsame **_
 
