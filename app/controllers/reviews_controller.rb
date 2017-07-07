@@ -1,21 +1,15 @@
 class ReviewsController < ApplicationController
-  def index
-    @reviews = Review.all
-  end
-
-  def show
-    @review = Review.find(params[:id])
-  end
 
   def new
     @review = Review.new
   end
 
   def create
+    @product = Product.find(params[:product_id])
     @review = Review.new(review_params)
     if @review.save
     flash[:notice] = "Review successfully added!"
-      redirect_to  reviews_path
+      redirect_to  product_path(@product)
     else
       render :new
     end
@@ -46,6 +40,6 @@ class ReviewsController < ApplicationController
 private
   def review_params
     # Use strict parameters, replace placeholder info below with your class' actual attributes
-    params.require(:review).permit(:attribute1, :attribute2, :attribute3)
+    params.require(:review).permit(:content, :product_id, :user_id)
   end
 end
