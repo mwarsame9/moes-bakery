@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :require_permission, only: :edit
 
   before_action :only => [:edit] do
-    redirect_to product_path unless current_user && current_user.admin
+    redirect_to product_path unless is_admin?
   end
 
   def require_permission
