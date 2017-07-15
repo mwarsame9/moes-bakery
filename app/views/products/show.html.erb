@@ -1,22 +1,32 @@
-<h1><%= @product.name %></h1>
+
+<br><br>
+<div class="panel panel-info">
+  <div class="panel-heading"><%= @product.name %></div>
+  <div class="panel-body">Description: <%= @product.description %></div>
+  <div class="panel-body">Price: $<%= @product.price %></div>
+</div>
 
 
-<h3><%= @product.description %></h3>
-<h3><%= @product.price %></h3>
-
-
-
-<h5><%= link_to "Leave a review", new_product_review_path(@product) %></h5>
-<ul>
+<br>
+<br>
+<h2>User Reviews</h2>
+<% if is_admin? %>
   <% @product.reviews.each do |review| %>
-  <li><%= review.content %></li>
-  <% end %>
-</ul>
+    <p><%= review.content %> | <%= link_to "Delete", product_review_path(@product, review), method: "delete" %></p>
+<% end %>
+
+<% else %>
+  <% @product.reviews.each do |review| %>
+    <p><%= review.content %></p>
+<% end %>
+<% end %>
+<span class="btn waves-effect waves-orange"><%= link_to "Leave a review", new_product_review_path(@product) %></span>
 
 <% if is_admin? %>
-<p><%= link_to "Edit", edit_product_path(@product) %></p>
-<p><%= link_to "Delete", product_path(@product),
+<p class="btn waves-effect waves-orange"><%= link_to "Edit", edit_product_path(@product) %></p>
+<p class="btn waves-effect waves-orange"><%= link_to "Delete", product_path(@product),
                          :data => {:confirm => "You sure?",
                                    :method => "delete"} %></p>
 <% end %>
-<p><%= link_to "Return to products", products_path %></p>
+<br><br>
+<p class="btn waves-effect waves-orange"><%= link_to "Return to products", products_path %></p>

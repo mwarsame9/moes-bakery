@@ -1,6 +1,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@import "materialize";
 
 .navbar-nav {
   border-bottom: 1px solid black;
@@ -23,5 +24,5 @@
   color: red;
   float: right;
   margin-top: 0px;
-  // padding-bottom: 0px;
+
 }

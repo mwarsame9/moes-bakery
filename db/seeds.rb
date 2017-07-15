@@ -26,4 +26,3 @@ end
 
 p "Created #{User.count} users"
 p "Created #{Product.count} products"
-p "Created #{Reviews.count} reviews"
